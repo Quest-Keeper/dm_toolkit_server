@@ -41,6 +41,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "pry"
+  gem 'webmock'
 end
 
 group :development do
@@ -52,3 +53,4 @@ gem "faraday"
 gem "figaro"
 gem "jsonapi-serializer"
 gem "ruby-openai"
+gem 'rack-cors'
