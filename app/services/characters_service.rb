@@ -32,6 +32,31 @@ class CharactersService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def generate_character_description(info)
+    payload = {
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          'role' => 'system',
+          'content' => 'You are an AI with an extensive knowledge of the fantasy universe of Dungeons & Dragons. You are skilled at creating fitting and memorable character descriptions.'
+        },
+        {
+          'role' => 'user',
+          'content' => "Please generate a unique and fitting #{info[:race]} #{info[:gender]} #{info[:age]} description. Do not return a name. Only the description is required. Cannot be longer than 120 words."
+        }
+      ],
+      temperature: 0.8,
+      max_tokens: 120
+    }
+
+    response = connection.post do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = payload.to_json
+    end
+
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   private
 
   attr_reader :connection

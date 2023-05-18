@@ -7,7 +7,19 @@ RSpec.describe CharactersService do
     it 'generates a character name' do
       info = { race: 'Dwarf', gender: 'Male' }
       response = service.generate_character_name(info)
-      binding.pry
+
+      expect(response).to be_a(Hash)
+      expect(response).to have_key(:choices)
+      expect(response[:choices]).to be_an(Array)
+      expect(response[:choices].first).to have_key(:message)
+      expect(response[:choices].first[:message]).to have_key(:content)
+    end
+  end
+
+  describe '#generate_character_description' do
+    it 'generates a character description' do
+      info = { race: 'Dwarf', gender: 'Male' }
+      response = service.generate_character_description(info)
 
       expect(response).to be_a(Hash)
       expect(response).to have_key(:choices)
