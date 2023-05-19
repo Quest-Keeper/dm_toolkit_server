@@ -1,0 +1,2 @@
+class Open5eApiFacade
+end
