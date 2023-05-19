@@ -42,7 +42,7 @@ class CharactersService
         },
         {
           'role' => 'user',
-          'content' => "Please generate a unique and fitting #{info[:race]} #{info[:gender]} #{info[:age]} description. Do not return a name. Only the description is required. Cannot be longer than 120 words."
+          'content' => "Please generate a unique and fitting #{info[:race]} #{info[:gender]} #{info[:age]} description. Do not return a name. Only the description is required. Must not have incomplete sentences. Cannot be longer than 100 words."
         }
       ],
       temperature: 0.8,
