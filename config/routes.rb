@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :characters, only: [:create]
       resources :monsters, only: [:index]
+      resources :loots, only: [:index]
     end
   end
 end
