@@ -1,24 +1,43 @@
-# README
+# Quest Keeper - Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the backend repository of the Quest Keeper application! This backend API is built using Ruby on Rails, providing essential services to the frontend. This application serves the frontend with data related to campaigns, characters, encounters, initiatives, items, and loot.
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+Quest Keeper's backend is a Rails API that serves JSON responses. It uses PostgreSQL as its database. The API is divided into multiple controllers corresponding to each key feature in the frontend:
 
-* System dependencies
+- **Characters:** Manage character data. This controller interacts with the Character Generator on the frontend.
+- **Monsters:** Build encounters with monsters using dynamic data provided by this controller.
+- **Items:** Fetch items and loot data, interacting with Item Search and Loot Generator on the frontend.
 
-* Configuration
+## Getting Started
 
-* Database creation
+1. Clone the repository to your local machine:
+2. Navigate into the project directory and install dependencies:
 
-* Database initialization
+    ```bash
+    bundle install
+    ```
 
-* How to run the test suite
+3. Setup and migrate the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+    ```bash
+    rails db:create db:migrate
+    ```
 
-* Deployment instructions
+4. Start the Rails server:
 
-* ...
+    ```bash
+    rails s
+    ```
+
+5. The server is now running at `http://localhost:3001`.
+
+## Running Tests
+
+This project uses RSpec for testing. Run the tests with the following command:
+
+```bash
+bundle exec rspec
+```
+Thanks for being part of Quest Keeper! Enjoy your adventure!
