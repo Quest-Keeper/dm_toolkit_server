@@ -1,12 +1,8 @@
 class Api::V1::MonstersController < ApplicationController
   def index
-    data = Open5eApiService.new.get_monsters(params[:type])
     challenge_rating = params[:challenge_rating].to_f
+    data = Open5eApiService.new.get_monsters(params[:type], challenge_rating)
     
-    data[:results].select! do |monster|
-  
-      monster[:challenge_rating].to_f == challenge_rating
-    end
     data[:results].map! do |monster|
       {
         name: monster[:name],

@@ -1,6 +1,6 @@
 class Open5eApiService 
-  def get_monsters(type)
-    get_url("/monsters/?type=#{type}")
+  def get_monsters(type, cr)
+    get_url("/monsters/?type=#{type}&cr__lte=#{cr}")
   end
 
   def get_magic_items
